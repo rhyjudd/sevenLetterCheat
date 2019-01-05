@@ -1,0 +1,17 @@
+{
+  "name": "scrabble_cheater",
+  "version": "1.0.0",
+  "description": "A simple app designed to help someone cheat at any 'scrabble' like games",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "check-word": "^1.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "node": "^11.4.0"
+  }
+}
