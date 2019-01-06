@@ -31,16 +31,18 @@ app.get('/submit', (req,res)=>{
   */
 
   const rawCombinations = combine(req.query.fname);
-  const filteredCombinations = rawCombinations.filter((element)=>{
+  const filteredCombinations = async (rawCombinations) =>{
+    rawCombinations.filter((element)=>{
     //console.log(element);
     return words.check(element);
   });
+}
 
   //res.send(filteredCombinations.sort((a,b)=>{
   //  return b.length - a.length;
   //}));
   console.log(filteredCombinations);
-  res.render('output', );
+  res.render('output', filteredCombinations);
   
 });
 
