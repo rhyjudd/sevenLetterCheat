@@ -28,21 +28,24 @@ app.get('/submit', (req,res)=>{
   for finding all the combinations of a set of characters
 
   const result = permute(req.query.fname);
-  */
+  */const rawCombinations = combine(req.query.fname);
+  function display(arr){
+    console.log(arr);
+    res.render('output',{arr});
+  }
+  function filtering(combos, callback){
+    
+    const filteredCombinations = combos.filter((element)=>{
+      console.log(element);
+      return words.check(element);
+    });
+    callback(filteredCombinations);
+  }
+  
 
-  const rawCombinations = combine(req.query.fname);
-  const filteredCombinations = async (rawCombinations) =>{
-    rawCombinations.filter((element)=>{
-    //console.log(element);
-    return words.check(element);
-  });
-}
+ filtering(rawCombinations, display);
 
-  //res.send(filteredCombinations.sort((a,b)=>{
-  //  return b.length - a.length;
-  //}));
-  console.log(filteredCombinations);
-  res.render('output', filteredCombinations);
+  
   
 });
 
